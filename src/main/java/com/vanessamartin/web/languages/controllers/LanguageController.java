@@ -38,7 +38,12 @@ public class LanguageController {
 	            return "redirect:/languages";
 	        }
 	    }
-
+	 @RequestMapping("/languages/{id}")
+	 public String show(@PathVariable("id") Long id, Model model) {
+		 Language lang = langService.findLan(id);
+		 model.addAttribute("lang", lang);
+		 return "show.jsp";
+	 }
 	 @RequestMapping("/languages/{id}/edit")
 	    public String edit(@ModelAttribute("preLang") Language preLang, @PathVariable("id") Long id, Model model) {
 	        Language lang = langService.findLan(id);

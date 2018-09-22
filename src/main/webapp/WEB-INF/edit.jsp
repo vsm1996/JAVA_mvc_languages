@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Language</title>
+<title><c:out value="${lang.name}"/></title>
 </head>
 <body>
 <a href="/languages/<c:out value="${lang.id }"/>/delete">Delete</a>
@@ -23,9 +23,9 @@
         <form:input value="${lang.creator }" path="creator"/>
     </p>
     <p>
-        <form:label path="currentVersion">Current Version</form:label>
+        <form:label path="currentVersion">Version</form:label>
         <form:errors path="currentVersion"/>
-        <form:input value="${lang.currentVersion }" type="number" path="currentVersion"/>
+        <form:input value="${lang.currentVersion }" path="currentVersion"/>
     </p>
     <input type="submit" value="Submit"/>
 </form:form>

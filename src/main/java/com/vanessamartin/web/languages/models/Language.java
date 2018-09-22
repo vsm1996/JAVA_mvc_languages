@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -23,8 +22,8 @@ public class Language {
     private String name;
 	@Size(min = 2, max= 20)
 	private String creator;
-	@Min(1)
-	private Integer currentVersion;
+	@Size(min=1)
+	private String currentVersion;
 	@Column(updatable=false)
     private Date createdAt;
 	private Date updatedAt;
@@ -33,7 +32,7 @@ public class Language {
 		
 	}
 			
-	public Language(Long id, String name, String creator,Integer currentVersion) {
+	public Language(Long id, String name, String creator,String currentVersion) {
 		this.id = id;
 		this.name = name;
 		this.creator = creator;
@@ -64,11 +63,11 @@ public class Language {
 		this.creator = creator;
 	}
 
-	public Integer getCurrentVersion() {
+	public String getCurrentVersion() {
 		return currentVersion;
 	}
 
-	public void setCurrentVersion(Integer currentVersion) {
+	public void setCurrentVersion(String currentVersion) {
 		this.currentVersion = currentVersion;
 	}
 
